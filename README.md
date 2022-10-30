@@ -45,3 +45,34 @@ Isso pode ser abstraído para um componente reutilizável, usando a props childr
 Dessa forma, o componente é separado do lugar onde ele está sendo exibido, trazendo mais flexibilidade no seu uso futuro e aproveitando uma das principais vantagens do React.js.
 
 ## 2 - Controlled vs Uncontrolled Components
+
+### O que são Uncontrolled Components?
+Componentes que rastreiam seus próprios estados e liberam dados somente quando algum evento ocorre, como o submit dos forms, por exemplo.
+
+```jsx
+    const Component = ({onSubmit}) => {
+        const [state, setState] = useState()
+
+        return ...
+    }
+
+    <Component onSubmit={data => ...} />
+```
+
+### O que são Controlled Components?
+Componentes que NÃO rastreiam seus próprios estados. Todos os estados são passados como props, como quando usamos o useState para controlar inputs
+
+```jsx
+    const Component = ({onSubmit, data, changeData}) => {
+        return ...
+    }
+
+    <Component 
+        onSubmit={() => ...} 
+        data={...} 
+        changeData={() => ...} 
+    />
+```
+
+### Os Controlled Components são mais utilizados por várias razões, uma delas é a facilidade de reutilização desse componente
+
